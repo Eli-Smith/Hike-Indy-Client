@@ -12,19 +12,9 @@ const Trails = (props) =>{
     const [trails, setTrails] = useState([])
 
     const TrailRows = () => {
-
-        const trailColumns = {
-            trailName: 'Name of Trail',
-            park: 'Park',
-            address: 'Address',
-            difficulty: 'Difficulty',
-            length: 'Length of Trail (in miles)'
-        }
-        return [<TrailsDisplay key={'column names'} data={trailColumns}/>].concat(
-            trails.map((trailInfo, index) => {
-                return <TrailsDisplay key={index} data={trailInfo} />
-            })
-        )
+        return trails.map( (trailInfo, index) => {
+            return <TrailsDisplay key={index} data={trailInfo} />
+        })
     };
 
     useEffect( () => {
@@ -44,6 +34,13 @@ const Trails = (props) =>{
             <div className='mainDiv' style={style}>
                 <table>
                     <tbody>
+                        <tr>
+                            <th>Trail Name:</th>
+                            <th>Park Name:</th>
+                            <th>Address:</th>
+                            <th>Difficulty</th>
+                            <th>Length (in miles):</th>
+                        </tr>
                         {TrailRows()}
                     </tbody>
                 </table>

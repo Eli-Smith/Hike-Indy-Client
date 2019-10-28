@@ -1,13 +1,30 @@
 import React from 'react';
 
-const ToVisitDisplay = (props) =>{
+const ToVisitDisplay = (props) => {
+
+    const removeFromList = () => {
+        fetch(`http://localhost:3000/visit/remove/${props.listItems.id}`, {
+            method: 'DELETE',
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            })
+        })
+        .then(console.log('Log Deleted'))
+        .then( () => props.getList())
+        .catch(err => console.log(err));
+    };
 
     return(
-        <div className='main'>
-            <div className='mainDiv'>
-                <h3>Our To Visit List will be here</h3>
-            </div>
-        </div>
+        <>
+            <tr>
+                <td>{props.listItems.trailName}</td>
+                <td>{props.listItems.address}</td>
+                <td>
+                <button onClick={removeFromList}>Remove</button>
+                </td>
+            </tr>
+        </>
     )
 }
 

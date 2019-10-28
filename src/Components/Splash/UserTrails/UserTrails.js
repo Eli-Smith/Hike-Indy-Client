@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import UserTrailsDisplay from './UserTrailsDisplay/UserTrailsDisplay';
 import TrailCreate from './Create/TrailCreate';
+import Update from './Update/Update';
 
 
 const style ={
@@ -12,23 +13,15 @@ const style ={
 
 const UserTrails = (props) =>{
     const [userTrails, setUserTrails] = useState([]);
+    const [updateActive, setUpdateActive] = useState(false);
+    const [TrailToUpdate, setTrailToUpdate] = useState({});
 
     const userRows = () => {
-        // console.log(props.token)
-
-        const userColumns = {
-            trailName: 'Trail Name',
-            difficulty: 'Difficulty',
-            description: 'Description',
-            rating: 'Rating'
-        }
-
-        return [<UserTrailsDisplay key={'Column Names'} data={userColumns} />].concat(
-            userTrails.map((userInfo, index) => {
-                return <UserTrailsDisplay key={index} data={userInfo} getTrails={getTrails}/>
-            })
-        )
-        }
+        return userTrails.map( (userInfo, index) => {
+            return <UserTrailsDisplay editTrailUpdate={editTrailUpdate} key={index} data={userInfo} getTrails={getTrails}
+            updateOn={updateOn} token={props.token} />
+        })
+    }
     
     // THIS METHOD WILL FETCH ALL TRAIL LOGS BELONGING TO CURRENT USER //
     const getTrails = () => {
@@ -44,6 +37,19 @@ const UserTrails = (props) =>{
         .catch(err => console.log(err)) 
     };
 
+    const editTrailUpdate = (trail) => {
+        setTrailToUpdate(trail);
+        console.log(trail);
+    };
+
+    const updateOn = () => {
+        setUpdateActive(true);
+    };
+
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
+
     
 
     // RUNS ON PAGE RENDER TO DISPLAY USER LOGS //
@@ -58,9 +64,18 @@ const UserTrails = (props) =>{
             <TrailCreate token={props.token} getTrails={getTrails}/>
             <table>
                     <tbody>
+                    <tr>
+                        <th>Trail Name:</th>
+                        <th>Difficulty:</th>
+                        <th>Description:</th>
+                        <th>Rating:</th>
+                    </tr>
                         {userRows()}
                     </tbody>
             </table>
+                    
+                    {updateActive ? <Update TrailToUpdate={TrailToUpdate}
+                    updateOff={updateOff} token={props.token} getTrails={getTrails}/> : <></>}
             </div>
         </div>
     )

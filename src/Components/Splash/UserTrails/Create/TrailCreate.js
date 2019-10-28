@@ -3,7 +3,7 @@ import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const Create = (props) => {
     const [trailName, setTrailName] = useState('')
-    const [difficulty, setDifficulty] = useState('')
+    const [difficulty, setDifficulty] = useState('Easy')
     const [description, setDescription] = useState('')
     const [rating, setRating] = useState('')
 

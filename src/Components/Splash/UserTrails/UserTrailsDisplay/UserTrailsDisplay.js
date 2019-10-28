@@ -1,9 +1,9 @@
 import React from 'react';
 
-const UserTrailsDisplay = (props) =>{
+const UserTrailsDisplay = (props) => {
 
         // METHOD FOR DELETING LOGS //
-        const deleteTrail = (data) => {
+        const deleteTrail = () => {
             fetch(`http://localhost:3000/usertrails/delete/${props.data.id}`, {
                 method: 'DELETE',
                 headers: new Headers ({
@@ -12,7 +12,7 @@ const UserTrailsDisplay = (props) =>{
                 })
             })
             .then(console.log('Log Deleted'))
-            .then(props.getTrails())
+            .then( () => props.getTrails())
             .catch(err => console.log(err));
         };
 
@@ -24,7 +24,7 @@ const UserTrailsDisplay = (props) =>{
             <td>{props.data.description}</td>
             <td>{props.data.rating}</td>
             <td>
-                <button>Update Trail</button>
+                <button onClick={ () => {props.editTrailUpdate(props.data); props.updateOn()}}>Update Trail</button>
                 <button onClick={deleteTrail}>Delete Trail</button>
             </td>
         </tr>
