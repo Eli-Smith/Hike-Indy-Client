@@ -10,10 +10,10 @@ const ToVisitDisplay = (props) => {
                 'Authorization': props.token
             })
         })
-        .then(console.log('Log Deleted'))
+        .then(item => console.log(item))
         .then( () => props.getList())
-        .catch(err => console.log(err));
-    };
+        .catch(err => console.log(err))
+    }
 
     return(
         <>

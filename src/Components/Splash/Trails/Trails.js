@@ -13,7 +13,7 @@ const Trails = (props) =>{
 
     const TrailRows = () => {
         return trails.map( (trailInfo, index) => {
-            return <TrailsDisplay key={index} data={trailInfo} />
+            return <TrailsDisplay key={index} data={trailInfo}/>
         })
     };
 

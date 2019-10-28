@@ -20,7 +20,7 @@ const Splash = (props) => {
                 <h1>This will be our Splash Page!</h1>
                 <UserTrails token={props.token} />
                 <ToVisit token={props.token}/>
-                <Trails />
+                <Trails token={props.token}/>
             </div>
         </div>
     )

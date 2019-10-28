@@ -15,7 +15,7 @@ const ToVisit = (props) =>{
 
     const listRows = () => {
         return listItems.map( (trail, index) => {
-            return <ToVisitDisplay listItems={trail} key={index} getList={getList}/>
+            return <ToVisitDisplay listItems={trail} key={index} getList={getList} token={props.token}/>
         })
     };
 
@@ -71,13 +71,13 @@ const ToVisit = (props) =>{
     return(
         <div className='main'>
             <div className='mainDiv' style={style}>
-                <h1>This will display our To Visit List</h1>
+                <h1>Add a Trail to your visit list!</h1>
                 <form onSubmit={addToList}>
                     <label htmlFor='trailName'>Trail Name</label>
-                    <input name='trailName' onChange={(e) => setListTrail(e.target.value)}/>
+                    <input name='trailName' value={listTrail} onChange={(e) => setListTrail(e.target.value)}/>
                     <br/>
                     <label htmlFor='address'>Address</label>
-                    <input name='address' onChange={(e) => setListAdd(e.target.value)}/>
+                    <input name='address' value={listAdd} onChange={(e) => setListAdd(e.target.value)}/>
                     <button>Add Trail!</button>
                 </form>
                 <table>
