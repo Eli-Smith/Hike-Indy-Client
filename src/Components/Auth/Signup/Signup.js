@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FormGroup } from 'reactstrap'
+import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './Signup.css'
 
 const Signup = (props) => {
     
@@ -31,25 +32,38 @@ const Signup = (props) => {
     }
 
     return(
-        <>
+        <div className='mainSignup'>
             <span>Create an Account:</span>
-                <form onSubmit={handleSignup}>
-                    <FormGroup>
-                        <label htmlFor='firstName'>First Name:</label>
-                        <input type='text' name='firstName' placeholder='First Name' onChange={(e) => setFirstName(e.target.value)} required></input>
-                        <br/>
-                        <label htmlFor='lastName'>Last Name</label>
-                        <input type='text' name='lastName' placeholder='Last Name' onChange={(e) => setLastName(e.target.value)} required></input>
-                        <br/>
-                        <label htmlFor='email'>Email:</label>
-                        <input type='email' name='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} required></input>
-                        <br/>
-                        <label htmlFor='password'>Password:</label>
-                        <input type='password' name='password' placeholder='Password' pattern="[A-Z,a-z]{6,}" title='Password must be at least 6 characters' onChange={(e) => setPassword(e.target.value)} required></input>
-                    </FormGroup>
-                    <button type='submit'>Create Account</button>
-                </form>
-        </>
+                <Form onSubmit={handleSignup}>
+                    <Row>
+                        <Col md={6}>
+                            <FormGroup>
+                                <Label htmlFor='firstName'>First Name:</Label>
+                                <Input type='text' name='firstName' placeholder='First Name' onChange={(e) => setFirstName(e.target.value)} required></Input>
+                            </FormGroup>
+                        </Col>
+                        <Col md={6}>
+                            <FormGroup>
+                                <Label htmlFor='lastName'>Last Name</Label>
+                                <Input type='text' name='lastName' placeholder='Last Name' onChange={(e) => setLastName(e.target.value)} required></Input>
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <FormGroup>
+                            <Label htmlFor='email'>Email:</Label>
+                            <Input type='email' name='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} required></Input>
+                        </FormGroup>
+                    </Row>
+                    <Row>
+                        <FormGroup>
+                            <Label htmlFor='password'>Password:</Label>
+                            <Input type='password' name='password' placeholder='Password' pattern="[A-Z,a-z]{6,}" title='Password must be at least 6 characters' onChange={(e) => setPassword(e.target.value)} required></Input>
+                        </FormGroup>
+                    </Row>
+                    <Button type='submit'>Create Account</Button>
+                </Form>
+        </div>
     )
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {FormGroup} from 'reactstrap'
+import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './Login.css';
 
 const Login = (props) =>{
     const [email, setEmail] = useState('');
@@ -26,19 +27,27 @@ const Login = (props) =>{
     }
 
     return(
-        <>
-        <span>Log In:</span>
-        <form onSubmit={handleLogin}>
-        <FormGroup>
-            <label htmlFor='email'>Email:</label>
-            <input type='email' name='email' placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} required></input>
-            <br/>
-            <label htmlFor='password'>Password:</label>
-            <input type='password' name='password' placeholder='Enter your password' onChange={(e) => setPassword(e.target.value)} required></input>
-        </FormGroup>
-        <button type='submit'>Log In</button>
-        </form>
-        </>
+        <div className='mainLogin'>
+            <span>Log In:</span>
+            <Form onSubmit={handleLogin}>
+                <Row form>
+                    <Col md={6}>
+                        <FormGroup>
+                            <Label htmlFor='email'>Email:</Label>
+                            <br/>
+                            <Input type='email' name='email' id='email' placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} required></Input>
+                        </FormGroup>
+                    </Col>
+                    <Col md={6}>
+                        <FormGroup>
+                            <Label htmlFor='password'>Password:</Label>
+                            <Input type='password' name='password' id='password' placeholder='Enter your password' onChange={(e) => setPassword(e.target.value)} required></Input>
+                        </FormGroup>
+                    </Col>
+                </Row>
+                <Button type='submit'>Log In</Button>
+            </Form>
+        </div>
     );
 };
 

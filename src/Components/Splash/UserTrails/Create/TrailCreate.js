@@ -1,9 +1,28 @@
 import React, { useState } from 'react';
 import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
+import './Create.css'
+
+const useStyles = makeStyles(theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
+}));
+
 const Create = (props) => {
+    const classes = makeStyles;
+
     const [trailName, setTrailName] = useState('')
-    const [difficulty, setDifficulty] = useState('Easy')
+    const [difficulty, setDifficulty] = useState('')
     const [description, setDescription] = useState('')
     const [rating, setRating] = useState('')
 
@@ -31,28 +50,38 @@ const Create = (props) => {
     }
 
     return(
-        <>
+        <div className='mainCreate'>
             <h3>Log your trail!</h3>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor='trailName'/>
+                    <Label htmlFor='trailName'>Trail Name: </Label>
                     <Input name='trailName' value={trailName} onChange={(e) => setTrailName(e.target.value)} required/>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor='difficulty'/>
+                    <Label htmlFor='difficulty'>Difficulty: </Label>
                     <Input type='select' name='difficulty' value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                        <option value={null}>(optional)</option>
                         <option value='Easy'>Easy</option>
                         <option value='Moderate'>Moderate</option>
                         <option value='Hard'>Hard</option>
                     </Input>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor='description'/>
-                    <Input name='description' value={description} onChange={(e) => setDescription(e.target.value)} required/>
+                    <Label htmlFor='description'>Description: </Label>
+                    <TextField
+                        name='description'
+                        id="standard-textarea"
+                        onChange={ (e) => setDescription(e.target.value)}
+                        placeholder="Description"
+                        multiline
+                        className={classes.textField}
+                        margin="normal"
+                    />
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor='rating'/>
+                    <Label htmlFor='rating'>Rating: </Label>
                     <Input type='select' name='rating' value={rating} onChange={ (e) => setRating(e.target.value)} required>
+                        <option value={null}>Please rate your experience!</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
@@ -62,7 +91,7 @@ const Create = (props) => {
                 </FormGroup>
                 <Button type='submit'>Click to record your trail!</Button>
             </Form>
-        </>
+        </div>
     )
 }
 

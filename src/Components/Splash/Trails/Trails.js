@@ -9,7 +9,7 @@ const style ={
 };
 
 const Trails = (props) =>{
-    const [trails, setTrails] = useState([])
+    const [trails, setTrails] = useState([]);
 
     const TrailRows = () => {
         return trails.map( (trailInfo, index) => {

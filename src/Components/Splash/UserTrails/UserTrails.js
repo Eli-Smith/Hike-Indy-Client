@@ -4,14 +4,40 @@ import UserTrailsDisplay from './UserTrailsDisplay/UserTrailsDisplay';
 import TrailCreate from './Create/TrailCreate';
 import Update from './Update/Update';
 
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
-const style ={
-    width: 'auto',
-    height: 'auto',
-    backgroundColor: 'gray'
-};
+import './UserTrails.css'
+
+const useStyles = makeStyles({
+    root: {
+      width: '100%',
+      overflowX: 'auto',
+    },
+    table: {
+      minWidth: 650,
+    },
+    boldHeaders: {
+        fontWeight: 'bold',
+        fontSize: '20px',
+    },
+  });
+
+
+// const style ={
+//     width: 'auto',
+//     height: 'auto',
+//     backgroundColor: 'gray'
+// };
 
 const UserTrails = (props) =>{
+    const classes = makeStyles;
+
     const [userTrails, setUserTrails] = useState([]);
     const [updateActive, setUpdateActive] = useState(false);
     const [TrailToUpdate, setTrailToUpdate] = useState({});
@@ -59,23 +85,29 @@ const UserTrails = (props) =>{
 
 
     return(
-        <div className='main'>
-            <div className='mainDiv' style={style}>
-            <TrailCreate token={props.token} getTrails={getTrails}/>
-            <table>
-                    <tbody>
-                    <tr>
-                        <th>Trail Name:</th>
-                        <th>Difficulty:</th>
-                        <th>Description:</th>
-                        <th>Rating:</th>
-                    </tr>
-                        {userRows()}
-                    </tbody>
-            </table>
-                    
-                    {updateActive ? <Update TrailToUpdate={TrailToUpdate}
-                    updateOff={updateOff} token={props.token} getTrails={getTrails}/> : <></>}
+        <div className='mainUserTrails'>
+            <div className='mainUserTrailsDiv'>
+
+            <TrailCreate token={props.token} getTrails={getTrails}/> 
+                
+            <Paper className={classes.root}>
+            <h1>My Trail Log</h1>
+            <Table className={classes.table} aria-label="simple table">
+                <TableHead>
+                <TableRow>
+                    <TableCell align='left' id='MuiTableCell-head'>Trail Name</TableCell>
+                    <TableCell align="left" id='MuiTableCell-head'>Difficulty</TableCell>
+                    <TableCell align="left" id='MuiTableCell-head'>Description</TableCell>
+                    <TableCell align="left" id='MuiTableCell-head'>Rating</TableCell>
+                </TableRow>
+                </TableHead>
+                <TableBody>
+                    {userRows()}
+                </TableBody>
+            </Table>
+            </Paper>
+                {updateActive ? <Update TrailToUpdate={TrailToUpdate}
+                updateOff={updateOff} token={props.token} getTrails={getTrails}/> : <></>}
             </div>
         </div>
     )

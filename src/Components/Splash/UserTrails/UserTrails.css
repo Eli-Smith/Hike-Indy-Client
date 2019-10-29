@@ -1,0 +1,10 @@
+.mainUserTrailsDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#MuiTableCell-head {
+    font-weight: bold;
+    font-size: 20px;
+}

@@ -1,6 +1,20 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+}));
+
+
 
 const Logout = (props) =>{
+    const classes = makeStyles;
 
     const toggleLogout = () => {
         props.setSession(undefined);
@@ -9,7 +23,9 @@ const Logout = (props) =>{
     return(
         <div className='main'>
             <div className="mainDiv">
-                <span onClick={toggleLogout}>Log Out</span>
+                <Button variant="contained" color="secondary" className={classes.button} onClick={toggleLogout}>
+                    Log Out
+                </Button>
             </div>
         </div>
     )

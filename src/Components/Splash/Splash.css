@@ -1,0 +1,15 @@
+.mainSplash {
+    background-image: url('../../assets/Splash_Page_Background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+
+    padding: 0px;
+    margin: 0px;
+}
+
+.welcome {
+    margin: 0px;
+    color: white;
+}

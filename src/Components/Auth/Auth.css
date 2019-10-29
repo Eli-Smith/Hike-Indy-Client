@@ -1,0 +1,16 @@
+.mainAuth {
+    background-image: url('../../assets/Auth_Page_Background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+}
+
+.mainAuthDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

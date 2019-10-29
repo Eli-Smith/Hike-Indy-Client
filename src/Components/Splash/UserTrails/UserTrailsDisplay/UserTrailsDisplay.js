@@ -1,4 +1,9 @@
 import React from 'react';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+
+import {Button} from 'reactstrap'
 
 const UserTrailsDisplay = (props) => {
 
@@ -18,16 +23,16 @@ const UserTrailsDisplay = (props) => {
 
     return(
        <>
-        <tr key={props.key}>
-            <td>{props.data.trailName}</td>
-            <td>{props.data.difficulty}</td>
-            <td>{props.data.description}</td>
-            <td>{props.data.rating}</td>
-            <td>
-                <button onClick={ () => {props.editTrailUpdate(props.data); props.updateOn()}}>Update Trail</button>
-                <button onClick={deleteTrail}>Delete Trail</button>
-            </td>
-        </tr>
+        <TableRow key={props.key}>
+            <TableCell align='left'>{props.data.trailName}</TableCell>
+            <TableCell align='left'>{props.data.difficulty}</TableCell>
+            <TableCell align='left'>{props.data.description}</TableCell>
+            <TableCell align='left'>{props.data.rating}</TableCell>
+            <TableCell align='left'>
+                <Button onClick={ () => {props.editTrailUpdate(props.data); props.updateOn()}}>Update Trail</Button>
+                <Button onClick={deleteTrail}>Delete Trail</Button>
+            </TableCell>
+        </TableRow>
        </>
     )
 }
