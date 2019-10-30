@@ -51,7 +51,8 @@ const Create = (props) => {
 
     return(
         <div className='mainCreate'>
-            <h3>Log your trail!</h3>
+            <div className='mainCreateDiv'>
+            <h1 style={{margin: '0px'}}>Log your trail!</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor='trailName'>Trail Name: </Label>
@@ -73,6 +74,7 @@ const Create = (props) => {
                         id="standard-textarea"
                         onChange={ (e) => setDescription(e.target.value)}
                         placeholder="Description"
+                        value={description}
                         multiline
                         className={classes.textField}
                         margin="normal"
@@ -91,6 +93,7 @@ const Create = (props) => {
                 </FormGroup>
                 <Button type='submit'>Click to record your trail!</Button>
             </Form>
+            </div>
         </div>
     )
 }

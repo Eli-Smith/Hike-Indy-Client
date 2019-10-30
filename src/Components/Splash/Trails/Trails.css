@@ -1,0 +1,12 @@
+.mainTrailsDiv {
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+
+    margin: 3em;
+    margin-bottom: 0px;
+}
+
+tr {
+    padding: 2em;
+}

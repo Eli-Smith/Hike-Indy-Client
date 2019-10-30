@@ -12,9 +12,8 @@ const Splash = (props) => {
     return(
         <div className='mainSplash'>
             <div className='mainSplashDiv'>
-                <h1 className='welcome'>Welcome to Hike Indy!</h1>
+                <h1 className='welcome' style={{textDecoration: 'underline'}}>Welcome to Hike Indy!</h1>
                 <UserTrails token={props.token} />
-                <ToVisit token={props.token}/>
                 <Trails token={props.token}/>
             </div>
         </div>

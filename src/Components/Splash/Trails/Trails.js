@@ -2,18 +2,38 @@ import React, { useState, useEffect } from 'react';
 
 import TrailsDisplay from './TrailsDisplay/TrailsDisplay';
 
-const style ={
-    width: 'auto',
-    height: 'auto',
-    backgroundColor: 'red'
-};
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+import './Trails.css'
+
+const useStyles = makeStyles({
+    root: {
+      width: '100%',
+      overflowX: 'auto',
+    },
+    table: {
+      minWidth: 650,
+    },
+    boldHeaders: {
+        fontWeight: 'bold',
+        fontSize: '20px',
+    },
+  });
 
 const Trails = (props) =>{
+    const classes = makeStyles;
+
     const [trails, setTrails] = useState([]);
 
     const TrailRows = () => {
         return trails.map( (trailInfo, index) => {
-            return <TrailsDisplay key={index} data={trailInfo}/>
+            return <TrailsDisplay key={index} data={trailInfo} token={props.token}/>
         })
     };
 
@@ -30,20 +50,25 @@ const Trails = (props) =>{
     }, [])
 
     return(
-        <div className='main'>
-            <div className='mainDiv' style={style}>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Trail Name:</th>
-                            <th>Park Name:</th>
-                            <th>Address:</th>
-                            <th>Difficulty</th>
-                            <th>Length (in miles):</th>
-                        </tr>
+        <div className='mainTrails'>
+            <div className='mainTrailsDiv'>
+            <Paper className={classes.root}>
+                <h1>Indy Trails</h1>
+                <Table className={classes.table} aria-label="simple table">
+                    <TableHead>
+                    <TableRow>
+                        <TableCell align='center' id='MuiTableCell-head'>Trail Name:</TableCell>
+                        <TableCell align="center" id='MuiTableCell-head'>Park:</TableCell>
+                        <TableCell align="center" id='MuiTableCell-head'>Address:</TableCell>
+                        <TableCell align="center" id='MuiTableCell-head'>Difficulty:</TableCell>
+                        <TableCell algin='center' id='MuiTableCell-head'>Length (in miles):</TableCell>
+                    </TableRow>
+                    </TableHead>
+                    <TableBody>
                         {TrailRows()}
-                    </tbody>
-                </table>
+                    </TableBody>
+                </Table>
+            </Paper>
             </div>
         </div>
     )

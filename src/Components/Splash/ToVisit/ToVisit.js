@@ -2,13 +2,29 @@ import React, {useState, useEffect} from 'react';
 
 import ToVisitDisplay from './ToVisitDisplay/ToVisitDisplay';
 
-const style ={
-    width: 'auto',
-    height: 'auto',
-    backgroundColor: 'blue'
-};
+import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+const useStyles = makeStyles({
+  root: {
+    width: '100%',
+    overflowX: 'auto',
+  },
+  table: {
+    minWidth: 650,
+  },
+});
 
 const ToVisit = (props) =>{
+    const classes = makeStyles;
+
     const [listItems, setListItems] = useState([])
     const [listTrail, setListTrail] = useState('');
     const [listAdd, setListAdd] = useState('');
@@ -65,30 +81,39 @@ const ToVisit = (props) =>{
         .then(res => res.json())
         .then(trail => setListItems(trail))
         .catch(err => console.log('This is my error:', err))
-    }, []);
+    });
 
 
     return(
-        <div className='main'>
-            <div className='mainDiv' style={style}>
-                <h1>Add a Trail to your visit list!</h1>
-                <form onSubmit={addToList}>
-                    <label htmlFor='trailName'>Trail Name</label>
-                    <input name='trailName' value={listTrail} onChange={(e) => setListTrail(e.target.value)}/>
-                    <br/>
-                    <label htmlFor='address'>Address</label>
-                    <input name='address' value={listAdd} onChange={(e) => setListAdd(e.target.value)}/>
-                    <button>Add Trail!</button>
-                </form>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Trail Name:</th>
-                            <th>Address:</th>
-                        </tr>
-                        {listRows()}
-                    </tbody>
-                </table>
+        <div className='mainToVisit'>
+            <div className='mainToVisitDiv' style={{marginRight: '3em'}}>
+                
+            <Paper className={classes.root}>  
+            <h1 style={{margin: '0px'}}>To Visit List</h1>
+            <Form onSubmit={addToList}>
+                <FormGroup>
+                    <Label htmlFor='trailName'>Trail Name: </Label>
+                    <Input name='trailName' value={listTrail} onChange={(e) => setListTrail(e.target.value)} required/>
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor='address'>Address: </Label>
+                    <Input name='address' value={listAdd} onChange={ (e) => setListAdd(e.target.value)}/>
+                </FormGroup>
+                <Button type='submit'>Click to record your trail!</Button>
+            </Form>
+
+            <Table className={classes.table} aria-label="simple table">
+                <TableHead>
+                <TableRow>
+                    <TableCell align='left' id='MuiTableCell-head'>Trail Name: </TableCell>
+                    <TableCell align="left" id='MuiTableCell-head'>Address: </TableCell>
+                </TableRow>
+                </TableHead>
+                <TableBody>
+                    {listRows()}
+                </TableBody>
+            </Table>
+            </Paper>
             </div>
         </div>
     )

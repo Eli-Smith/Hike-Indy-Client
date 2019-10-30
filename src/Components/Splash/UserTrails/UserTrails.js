@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import UserTrailsDisplay from './UserTrailsDisplay/UserTrailsDisplay';
 import TrailCreate from './Create/TrailCreate';
 import Update from './Update/Update';
+import ToVisit from '../ToVisit/ToVisit';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -28,12 +29,6 @@ const useStyles = makeStyles({
     },
   });
 
-
-// const style ={
-//     width: 'auto',
-//     height: 'auto',
-//     backgroundColor: 'gray'
-// };
 
 const UserTrails = (props) =>{
     const classes = makeStyles;
@@ -90,6 +85,8 @@ const UserTrails = (props) =>{
 
             <TrailCreate token={props.token} getTrails={getTrails}/> 
                 
+            <ToVisit token={props.token}/>
+            
             <Paper className={classes.root}>
             <h1>My Trail Log</h1>
             <Table className={classes.table} aria-label="simple table">
@@ -106,6 +103,7 @@ const UserTrails = (props) =>{
                 </TableBody>
             </Table>
             </Paper>
+
                 {updateActive ? <Update TrailToUpdate={TrailToUpdate}
                 updateOff={updateOff} token={props.token} getTrails={getTrails}/> : <></>}
             </div>
