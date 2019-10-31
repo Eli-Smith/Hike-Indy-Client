@@ -2,8 +2,17 @@ import React, { useState, useEffect } from 'react';
 
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
-import { Button } from 'reactstrap'
+const useStyles = makeStyles(theme => ({
+  Button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+}));
 
 const TrailsDisplay = (props) =>{
 
@@ -34,7 +43,7 @@ const TrailsDisplay = (props) =>{
         <TableCell align='center'>{props.data.difficulty}</TableCell>
         <TableCell align='center'>{props.data.length}</TableCell>
         <TableCell align='left'>
-            <Button onClick={addToList}>Add to Visit List!</Button>
+            <Button variant='contained' color='primary' onClick={addToList}>Add to Visit List!</Button>
         </TableCell>
     </TableRow>
     )

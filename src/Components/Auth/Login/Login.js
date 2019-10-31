@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Login.css';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles(theme => ({
+  Button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+}));
 
 const Login = (props) =>{
     const [email, setEmail] = useState('');
@@ -30,7 +43,7 @@ const Login = (props) =>{
         <div className='mainLogin'>
             <span>Log In:</span>
             <Form onSubmit={handleLogin}>
-                <Row form>
+                <Row>
                     <Col md={6}>
                         <FormGroup>
                             <Label htmlFor='email'>Email:</Label>
@@ -45,7 +58,7 @@ const Login = (props) =>{
                         </FormGroup>
                     </Col>
                 </Row>
-                <Button type='submit'>Log In</Button>
+                <Button variant='contained' type='submit'>Log In</Button>
             </Form>
         </div>
     );

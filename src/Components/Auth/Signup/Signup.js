@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Signup.css'
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles(theme => ({
+  Button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+}));
 
 const Signup = (props) => {
     
@@ -61,7 +74,7 @@ const Signup = (props) => {
                             <Input type='password' name='password' placeholder='Password' pattern="[A-Z,a-z]{6,}" title='Password must be at least 6 characters' onChange={(e) => setPassword(e.target.value)} required></Input>
                         </FormGroup>
                     </Row>
-                    <Button type='submit'>Create Account</Button>
+                    <Button variant='contained' type='submit'>Create Account</Button>
                 </Form>
         </div>
     )

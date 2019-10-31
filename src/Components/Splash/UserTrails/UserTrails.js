@@ -83,12 +83,12 @@ const UserTrails = (props) =>{
         <div className='mainUserTrails'>
             <div className='mainUserTrailsDiv'>
 
-            <TrailCreate token={props.token} getTrails={getTrails}/> 
-                
             <ToVisit token={props.token}/>
             
+            <TrailCreate token={props.token} getTrails={getTrails}/> 
+
             <Paper className={classes.root}>
-            <h1>My Trail Log</h1>
+            <h1 style={{margin: '0px'}}>My Trail Log</h1>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                 <TableRow>

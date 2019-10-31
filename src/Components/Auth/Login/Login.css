@@ -1,9 +1,13 @@
 .mainLogin {
     display: flex;
     justify-content: center;
+    align-content: center;
     height: auto;
     width: 15vw;
-    background-color: rgba(110, 120, 110, 0.9);
 
     color: white;
+}
+
+span {
+    font-weight: bold;
 }

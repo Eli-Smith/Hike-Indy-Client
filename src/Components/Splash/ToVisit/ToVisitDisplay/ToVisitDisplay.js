@@ -2,6 +2,17 @@ import React from 'react';
 
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles(theme => ({
+  Button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+}));
 
 const ToVisitDisplay = (props) => {
 
@@ -24,7 +35,7 @@ const ToVisitDisplay = (props) => {
                 <TableCell>{props.listItems.trailName}</TableCell>
                 <TableCell>{props.listItems.address}</TableCell>
                 <TableCell>
-                <button onClick={removeFromList}>Remove</button>
+                <Button variant='contained' style={{backgroundColor: '#DD4E37'}} onClick={removeFromList}>Remove</Button>
                 </TableCell>
             </TableRow>
         </>

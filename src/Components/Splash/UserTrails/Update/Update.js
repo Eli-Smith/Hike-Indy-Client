@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button, Container } from 'reactstrap'
 
 import './Update.css'
 
@@ -26,6 +26,7 @@ const Update = (props) => {
     }
 
     return(
+        <Container>
             <Modal isOpen={true}>
                 <ModalHeader>Update Your Trail</ModalHeader>
                 <ModalBody>
@@ -57,9 +58,11 @@ const Update = (props) => {
                             </Input>
                         </FormGroup>
                         <Button type='submit'>Click to Update!</Button>
+                        <Button onClick={props.updateOff}>Cancel</Button>
                     </Form>
                 </ModalBody>
             </Modal>
+        </Container>
     )
 }
 

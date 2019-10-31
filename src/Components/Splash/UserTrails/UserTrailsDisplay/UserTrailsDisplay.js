@@ -1,8 +1,19 @@
 import React from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
-import {Button} from 'reactstrap'
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+}));
+
+
 
 const UserTrailsDisplay = (props) => {
 
@@ -28,8 +39,8 @@ const UserTrailsDisplay = (props) => {
             <TableCell align='left'>{props.data.description}</TableCell>
             <TableCell align='left'>{props.data.rating}</TableCell>
             <TableCell align='left'>
-                <Button onClick={ () => {props.editTrailUpdate(props.data); props.updateOn()}}>Update Trail</Button>
-                <Button onClick={deleteTrail}>Delete Trail</Button>
+                <Button variant='contained' style={{backgroundColor: '#DDB537'}} onClick={ () => {props.editTrailUpdate(props.data); props.updateOn()}}>Edit</Button>
+                <Button variant='contained' style={{backgroundColor: '#DD4E37'}} onClick={deleteTrail}>Delete</Button>
             </TableCell>
         </TableRow>
        </>
