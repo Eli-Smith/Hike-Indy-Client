@@ -35,7 +35,7 @@ const UserTrails = (props) =>{
 
     const [userTrails, setUserTrails] = useState([]);
     const [updateActive, setUpdateActive] = useState(false);
-    const [TrailToUpdate, setTrailToUpdate] = useState({});
+    const [trailToUpdate, setTrailToUpdate] = useState({});
 
     const userRows = () => {
         return userTrails.map( (userInfo, index) => {
@@ -92,10 +92,10 @@ const UserTrails = (props) =>{
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                 <TableRow>
-                    <TableCell align='left' id='MuiTableCell-head'>Trail Name</TableCell>
-                    <TableCell align="left" id='MuiTableCell-head'>Difficulty</TableCell>
-                    <TableCell align="left" id='MuiTableCell-head'>Description</TableCell>
-                    <TableCell align="left" id='MuiTableCell-head'>Rating</TableCell>
+                    <TableCell align='left' id='MuiTableCell-head'>Trail Name:</TableCell>
+                    <TableCell align="left" id='MuiTableCell-head'>Difficulty:</TableCell>
+                    <TableCell align="left" id='MuiTableCell-head'>Description:</TableCell>
+                    <TableCell align="left" id='MuiTableCell-head'>Rating:</TableCell>
                 </TableRow>
                 </TableHead>
                 <TableBody>
@@ -104,7 +104,7 @@ const UserTrails = (props) =>{
             </Table>
             </Paper>
 
-                {updateActive ? <Update TrailToUpdate={TrailToUpdate}
+                {updateActive ? <Update trailToUpdate={trailToUpdate}
                 updateOff={updateOff} token={props.token} getTrails={getTrails}/> : <></>}
             </div>
         </div>

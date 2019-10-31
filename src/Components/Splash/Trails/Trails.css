@@ -1,10 +1,20 @@
+.mainTrails {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .mainTrailsDiv {
     background-color: white;
     border: 1px solid gray;
     border-radius: 5px;
 
-    margin: 3em;
-    margin-bottom: 0px;
+    margin: 4em;
+
+    height: 75vh;
+    width: 75vw;
+
+    overflow-y: auto;
 }
 
 tr {

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 import { Button } from 'reactstrap'
@@ -28,6 +27,7 @@ const TrailsDisplay = (props) =>{
    
     return(
         <TableRow key={props.key}>
+        <TableCell align='center'></TableCell>
         <TableCell align='center'>{props.data.trailName}</TableCell>
         <TableCell align='center'>{props.data.park}</TableCell>
         <TableCell align='center'>{props.data.address}</TableCell>

@@ -53,15 +53,16 @@ const Trails = (props) =>{
         <div className='mainTrails'>
             <div className='mainTrailsDiv'>
             <Paper className={classes.root}>
-                <h1>Indy Trails</h1>
-                <Table className={classes.table} aria-label="simple table">
+                <Table stickyHeader className={classes.table} aria-label="simple table">
                     <TableHead>
                     <TableRow>
+                        <TableCell align='center' id='MuiTableCell-head' style={{textDecoration: 'underline', fontSize: '28px', lineHeight: '1.5em'}}>Indy Trails</TableCell>
                         <TableCell align='center' id='MuiTableCell-head'>Trail Name:</TableCell>
                         <TableCell align="center" id='MuiTableCell-head'>Park:</TableCell>
                         <TableCell align="center" id='MuiTableCell-head'>Address:</TableCell>
                         <TableCell align="center" id='MuiTableCell-head'>Difficulty:</TableCell>
                         <TableCell algin='center' id='MuiTableCell-head'>Length (in miles):</TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                     </TableHead>
                     <TableBody>

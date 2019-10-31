@@ -1,7 +1,6 @@
 import React from 'react';
 
 import UserTrails from './UserTrails/UserTrails';
-import ToVisit from './ToVisit/ToVisit';
 import Trails from './Trails/Trails';
 
 import './Splash.css'

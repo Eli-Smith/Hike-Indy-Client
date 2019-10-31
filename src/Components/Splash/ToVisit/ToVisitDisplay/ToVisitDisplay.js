@@ -1,5 +1,8 @@
 import React from 'react';
 
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+
 const ToVisitDisplay = (props) => {
 
     const removeFromList = () => {
@@ -17,13 +20,13 @@ const ToVisitDisplay = (props) => {
 
     return(
         <>
-            <tr>
-                <td>{props.listItems.trailName}</td>
-                <td>{props.listItems.address}</td>
-                <td>
+            <TableRow>
+                <TableCell>{props.listItems.trailName}</TableCell>
+                <TableCell>{props.listItems.address}</TableCell>
+                <TableCell>
                 <button onClick={removeFromList}>Remove</button>
-                </td>
-            </tr>
+                </TableCell>
+            </TableRow>
         </>
     )
 }

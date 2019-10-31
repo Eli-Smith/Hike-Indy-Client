@@ -1,3 +1,12 @@
-.mainUpdateDiv {
-    width: auto;
+.modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+
+    padding: 1em;
+
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 4px;
 }
