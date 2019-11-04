@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import ToVisitDisplay from './ToVisitDisplay/ToVisitDisplay';
 
-import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import {Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -11,8 +11,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
     overflowX: 'auto',
@@ -20,7 +21,13 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
-});
+  button: {
+    margin: theme.spacing(1),
+},
+input: {
+    display: 'none',
+},  
+}));
 
 const ToVisit = (props) =>{
     const classes = makeStyles;
@@ -88,8 +95,9 @@ const ToVisit = (props) =>{
         <div className='mainToVisit'>
             <div className='mainToVisitDiv' style={{marginRight: '3em'}}>
                 
-            <Paper className={classes.root}>  
+            <Paper className={classes.root} style={{padding: '1em'}}>  
             <h1 style={{margin: '0px'}}>To Visit List</h1>
+            <span>Add a trail to your list to visit later!</span>
             <Form onSubmit={addToList}>
                 <FormGroup>
                     <Label htmlFor='trailName'>Trail Name: </Label>
@@ -99,7 +107,7 @@ const ToVisit = (props) =>{
                     <Label htmlFor='address'>Address: </Label>
                     <Input name='address' value={listAdd} onChange={ (e) => setListAdd(e.target.value)}/>
                 </FormGroup>
-                <Button type='submit'>Click to record your trail!</Button>
+                <Button type='submit' variant='contained' color='primary'>Add it to your list!</Button>
             </Form>
 
             <Table className={classes.table} aria-label="simple table">

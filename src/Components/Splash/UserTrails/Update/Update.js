@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
-import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Button, Container } from 'reactstrap'
+import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Container } from 'reactstrap'
 
 import './Update.css'
 
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+}));
+
 const Update = (props) => {
+    const classes = useStyles
+
     const [editTrailName, setEditTrailName] = useState(props.trailToUpdate.trailName)
     const [editDiff, setEditDiff] = useState(props.trailToUpdate.difficulty)
     const [editDesc, setEditDesc] = useState(props.trailToUpdate.description)
@@ -26,30 +40,29 @@ const Update = (props) => {
     }
 
     return(
-        <Container>
             <Modal isOpen={true}>
                 <ModalHeader>Update Your Trail</ModalHeader>
                 <ModalBody>
                     <Form onSubmit={trailUpdate}>
                         <FormGroup>
-                            <Label htmlFor='trailName'>Edit Trail Name:</Label>
+                            <Label htmlFor='trailName'>Edit Trail Name: </Label>
                             <Input name='trailName' value={editTrailName} onChange={(e) => setEditTrailName(e.target.value)}/>
                         </FormGroup>
                         <FormGroup>
-                            <Label htmlFor='difficulty'>Edit Difficulty:</Label>
-                            <Input name='difficulty' type='select' value={editDiff} onChange={(e) => setEditDiff(e.target.value)}>
+                            <Label htmlFor='difficulty'>Edit Difficulty: </Label>
+                            <Input className='selectDropdown' name='difficulty' type='select' value={editDiff} onChange={(e) => setEditDiff(e.target.value)}>
                                 <option value='Easy'>Easy</option>
                                 <option value="Moderate">Moderate</option>
                                 <option value="Hard">Hard</option>
                             </Input>
                         </FormGroup>
                         <FormGroup>
-                            <Label htmlFor='description'>Edit Description:</Label>
+                            <Label htmlFor='description'>Edit Description: </Label>
                             <Input name='description' value={editDesc} onChange={(e) => setEditDesc(e.target.value)}/>
                         </FormGroup>
                         <FormGroup>
-                            <Label htmlFor='rating'>Edit Rating:</Label>
-                            <Input type='select' name='rating' value={editRating} onChange={(e) => setEditRating(e.target.value)}>
+                            <Label htmlFor='rating'>Edit Rating: </Label>
+                            <Input className='selectDropdown' type='select' name='rating' value={editRating} onChange={(e) => setEditRating(e.target.value)}>
                                 <option value='1'>1</option>
                                 <option value='2'>2</option>
                                 <option value='3'>3</option>
@@ -57,12 +70,11 @@ const Update = (props) => {
                                 <option value='5'>5</option>
                             </Input>
                         </FormGroup>
-                        <Button type='submit'>Click to Update!</Button>
-                        <Button onClick={props.updateOff}>Cancel</Button>
+                        <Button variant='contained' color='primary' type='submit'>Click to Update!</Button>
+                        <Button variant='contained' style={{backgroundColor: '#DD4E37'}} onClick={props.updateOff}>Cancel</Button>
                     </Form>
                 </ModalBody>
             </Modal>
-        </Container>
     )
 }
 

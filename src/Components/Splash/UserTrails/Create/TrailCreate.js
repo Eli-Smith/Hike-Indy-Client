@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
-import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
-
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import {Form, FormGroup, Label, Input } from 'reactstrap';
 
 import './Create.css'
 
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+
 const useStyles = makeStyles(theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 200,
-  },
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: 200,
+    },
+    button: {
+        margin: theme.spacing(1),
+    },
+    input: {
+        display: 'none',
+    },  
 }));
 
 const Create = (props) => {
@@ -52,15 +60,26 @@ const Create = (props) => {
     return(
         <div className='mainCreate'>
             <div className='mainCreateDiv'>
-            <h1 style={{margin: '0px'}}>Log your trail!</h1>
+            <h1 style={{margin: '0px'}}>Add a trail to your log</h1>
+            <span>How was your hike?</span>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor='trailName'>Trail Name: </Label>
-                    <Input name='trailName' value={trailName} onChange={(e) => setTrailName(e.target.value)} required/>
+                    {/* <Input name='trailName' value={trailName} onChange={(e) => setTrailName(e.target.value)} required/> */}
+                    <TextField
+                        name='trailName'
+                        id="standard-textarea"
+                        onChange={ (e) => setTrailName(e.target.value)}
+                        placeholder="Please Enter Trail Name"
+                        value={trailName}
+                        multiline
+                        className={classes.textField}
+                        margin="normal"
+                    />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor='difficulty'>Difficulty: </Label>
-                    <Input type='select' name='difficulty' value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                    <Input type='select' name='difficulty' className='selectDropdown' value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
                         <option value={null}>(optional)</option>
                         <option value='Easy'>Easy</option>
                         <option value='Moderate'>Moderate</option>
@@ -73,7 +92,7 @@ const Create = (props) => {
                         name='description'
                         id="standard-textarea"
                         onChange={ (e) => setDescription(e.target.value)}
-                        placeholder="Description"
+                        placeholder="(Optional)"
                         value={description}
                         multiline
                         className={classes.textField}
@@ -82,8 +101,8 @@ const Create = (props) => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor='rating'>Rating: </Label>
-                    <Input type='select' name='rating' value={rating} onChange={ (e) => setRating(e.target.value)} required>
-                        <option value={null}>Please rate your experience!</option>
+                    <Input type='select' name='rating' className="selectDropdown" value={rating} onChange={ (e) => setRating(e.target.value)} required>
+                        <option value={null}>Rate your experience!</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
@@ -91,7 +110,7 @@ const Create = (props) => {
                         <option value='5'>5</option>
                     </Input>
                 </FormGroup>
-                <Button type='submit'>Click to record your trail!</Button>
+                <Button type='submit' variant='contained' color='primary'>Click to record your trail!</Button>
             </Form>
             </div>
         </div>

@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
-import './Login.css';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react'; // Importing React and useState to create a new react component
+import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap'; // Importing components from the ReactStrap Library
+import './Login.css'; // Linking our css file
+
+import { makeStyles } from '@material-ui/core/styles'; // (Lines 5 and 6) Importing material UI components from our material UI dependency
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(theme => ({ // Grabbing the pre set style for our mui components
   Button: {
     margin: theme.spacing(1),
   },
@@ -15,32 +14,32 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Login = (props) =>{
-    const [email, setEmail] = useState('');
+const Login = (props) =>{ // Declaring our Login component
+    const [email, setEmail] = useState(''); // (Lines 18 and 19) Declaring the useState of our component to take in the email and password from our login fields
     const [password, setPassword] = useState('');
 
-    let userObj = {
+    let userObj = { // Declaring a variable and setting it to the value of our email and password fields creating a user object
         email: email,
         password: password
     };
 
-    const handleLogin = (e) => {
-        e.preventDefault();
+    const handleLogin = (e) => { // Delcaring a function and setting it to take in an event as an argument
+        e.preventDefault(); // Preventing the default functions of any event our function takes in
 
-        fetch('http://localhost:3000/user/login', {
-            method: 'POST',
-            body: JSON.stringify({user: userObj}),
-            headers: new Headers ({
+        fetch('http://localhost:3000/user/login', { // Making a fetch request to our server
+            method: 'POST', // The fetch method is 'POST' allowing us to store information in our db
+            body: JSON.stringify({user: userObj}), // JSONifying the body of our request, in this case our userObj variable
+            headers: new Headers ({ // Setting the headers of our request to match what we have established in our back end
                 'Content-Type': 'application/json'
             })
         })
-        .then(data => data.json())
-        .then(json => props.setSession(json.sessionToken))
-        .catch(err => console.log(err))
+        .then(data => data.json()) // Jsonify the data from our fetch
+        .then(json => props.setSession(json.sessionToken)) // Setting the session token handed to us as a prop from our App.js
+        .catch(err => console.log(err)) // Cathing any errors we may encounter
     }
 
     return(
-        <div className='mainLogin'>
+        <div className='mainLogin'> {/*Using JSX to create the layout of our Log in Component*/}
             <span>Log In:</span>
             <Form onSubmit={handleLogin}>
                 <Row>
@@ -64,4 +63,4 @@ const Login = (props) =>{
     );
 };
 
-export default Login;
+export default Login; // Exporting the React componenet for use in the rest of our app

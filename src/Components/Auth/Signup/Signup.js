@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
-import './Signup.css'
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react'; // Importing React and useState
+import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap'; // Importing several styled components from the reactstrap library
+
+import './Signup.css' // Linking our css file
+
+import { makeStyles } from '@material-ui/core/styles'; // (lines 6 and 7) Importing mui components
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(theme => ({ // Creating a variable to store our mui styled elements
   Button: {
     margin: theme.spacing(1),
   },
@@ -15,37 +15,37 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Signup = (props) => {
+const Signup = (props) => {  // Declaring our Signup component and setting it to accept props
     
-    const [firstName, setFirstName] = useState('');
+    const [firstName, setFirstName] = useState(''); // (Lines 20 - 23) Establishing the useState of our component to create new users
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    let userObj ={
+    let userObj ={ // Declaring a new variable to store a new User Object
         firstName: firstName,
         lastName: lastName,
         email: email,
         password: password
     }
 
-    const handleSignup = (e) =>{
-        e.preventDefault();
+    const handleSignup = (e) =>{ // Declaring a function to handle our form submit and allowing it to take in an event as an argument
+        e.preventDefault(); // Preventing the default behaviour of our event
 
-        fetch('http://localhost:3000/user/create', {
-            method: 'POST',
-            body: JSON.stringify(userObj),
-            headers: new Headers ({
+        fetch('http://localhost:3000/user/create', { // Making a fetch request to our db
+            method: 'POST', // Using the 'POST' method allowing us to store information in our db
+            body: JSON.stringify(userObj), // JSONifying our userObj
+            headers: new Headers ({ // Establishing the headers in our request
                 "Content-Type": 'application/json'
             })
         })
-        .then(data => data.json())
-        .then(json => props.setSession(json.sessionToken))
-        .catch(err => console.log(err));
+        .then(data => data.json()) // JSONify the data returned from our fetch
+        .then(json => props.setSession(json.sessionToken)) // Using our setSession callback function from our props and establish a new session
+        .catch(err => console.log(err)); // Catching any errors we may encounter
     }
 
     return(
-        <div className='mainSignup'>
+        <div className='mainSignup'> {/*Using JSX to create the layout of our Signup component*/}
             <span>Create an Account:</span>
                 <Form onSubmit={handleSignup}>
                     <Row>
@@ -80,4 +80,4 @@ const Signup = (props) => {
     )
 }
 
-export default Signup
+export default Signup // Exporting the React component for use in the rest of our app
