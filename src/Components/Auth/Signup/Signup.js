@@ -6,6 +6,8 @@ import './Signup.css' // Linking our css file
 import { makeStyles } from '@material-ui/core/styles'; // (lines 6 and 7) Importing mui components
 import Button from '@material-ui/core/Button';
 
+import APIURL from '../../../helpers/environment';
+
 const useStyles = makeStyles(theme => ({ // Creating a variable to store our mui styled elements
   Button: {
     margin: theme.spacing(1),
@@ -32,7 +34,7 @@ const Signup = (props) => {  // Declaring our Signup component and setting it to
     const handleSignup = (e) =>{ // Declaring a function to handle our form submit and allowing it to take in an event as an argument
         e.preventDefault(); // Preventing the default behaviour of our event
 
-        fetch('http://localhost:3000/user/create', { // Making a fetch request to our db
+        fetch(`${APIURL}/user/create`, { // Making a fetch request to our db
             method: 'POST', // Using the 'POST' method allowing us to store information in our db
             body: JSON.stringify(userObj), // JSONifying our userObj
             headers: new Headers ({ // Establishing the headers in our request

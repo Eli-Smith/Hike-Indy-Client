@@ -15,6 +15,8 @@ import Paper from '@material-ui/core/Paper';
 
 import './UserTrails.css'
 
+import APIURL from '../../../helpers/environment';
+
 const useStyles = makeStyles({
     root: {
       width: '100%',
@@ -46,7 +48,7 @@ const UserTrails = (props) =>{
     
     // THIS METHOD WILL FETCH ALL TRAIL LOGS BELONGING TO CURRENT USER //
     const getTrails = () => {
-        fetch('http://localhost:3000/usertrails/viewall', {
+        fetch(`${APIURL}/usertrails/viewall`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',

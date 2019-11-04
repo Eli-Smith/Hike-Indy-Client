@@ -10,6 +10,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+import APIURL from '../../../helpers/environment';
+
 import './Trails.css'
 
 const useStyles = makeStyles({
@@ -38,7 +40,7 @@ const Trails = (props) =>{
     };
 
     useEffect( () => {
-        fetch('http://localhost:3000/trail/viewtrails', {
+        fetch(`${APIURL}/trail/viewtrails`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

@@ -5,6 +5,8 @@ import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+import APIURL from '../../../helpers/environment';
+
 const useStyles = makeStyles(theme => ({
   Button: {
     margin: theme.spacing(1),
@@ -17,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 const ToVisitDisplay = (props) => {
 
     const removeFromList = () => {
-        fetch(`http://localhost:3000/visit/remove/${props.listItems.id}`, {
+        fetch(`${APIURL}/visit/remove/${props.listItems.id}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-Type': 'application/json',

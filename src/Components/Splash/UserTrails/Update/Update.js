@@ -6,6 +6,8 @@ import './Update.css'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+import APIURL from '../../../helpers/environment';
+
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
@@ -25,7 +27,7 @@ const Update = (props) => {
 
     const trailUpdate = (event, trail) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/usertrails/update/${props.trailToUpdate.id}`, {
+        fetch(`${APIURL}/usertrails/update/${props.trailToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({trailName: editTrailName, difficulty: editDiff, description: editDesc, rating: editRating}),
             headers: new Headers({

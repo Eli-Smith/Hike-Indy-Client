@@ -5,6 +5,9 @@ import './Login.css'; // Linking our css file
 import { makeStyles } from '@material-ui/core/styles'; // (Lines 5 and 6) Importing material UI components from our material UI dependency
 import Button from '@material-ui/core/Button';
 
+import APIURL from '../../../helpers/environment';
+
+
 const useStyles = makeStyles(theme => ({ // Grabbing the pre set style for our mui components
   Button: {
     margin: theme.spacing(1),
@@ -26,7 +29,7 @@ const Login = (props) =>{ // Declaring our Login component
     const handleLogin = (e) => { // Delcaring a function and setting it to take in an event as an argument
         e.preventDefault(); // Preventing the default functions of any event our function takes in
 
-        fetch('http://localhost:3000/user/login', { // Making a fetch request to our server
+        fetch(`${APIURL}/user/login`, { // Making a fetch request to our server
             method: 'POST', // The fetch method is 'POST' allowing us to store information in our db
             body: JSON.stringify({user: userObj}), // JSONifying the body of our request, in this case our userObj variable
             headers: new Headers ({ // Setting the headers of our request to match what we have established in our back end

@@ -5,6 +5,8 @@ import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+import APIURL from '../../../helpers/environment';
+
 const useStyles = makeStyles(theme => ({
   Button: {
     margin: theme.spacing(1),
@@ -22,7 +24,7 @@ const TrailsDisplay = (props) =>{
 
         e.preventDefault();
 
-        fetch('http://localhost:3000/visit/add', {
+        fetch(`${APIURL}/visit/add`, {
             method: 'POST',
             body: JSON.stringify({trailName: props.data.trailName, address: props.data.address}),
             headers: new Headers({

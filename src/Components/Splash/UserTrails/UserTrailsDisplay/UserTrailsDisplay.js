@@ -4,6 +4,8 @@ import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+import APIURL from '../../../helpers/environment';
+
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
@@ -19,7 +21,7 @@ const UserTrailsDisplay = (props) => {
 
         // METHOD FOR DELETING LOGS //
         const deleteTrail = () => {
-            fetch(`http://localhost:3000/usertrails/delete/${props.data.id}`, {
+            fetch(`${APIURL}/usertrails/delete/${props.data.id}`, {
                 method: 'DELETE',
                 headers: new Headers ({
                     'Content-Type': 'application/json',

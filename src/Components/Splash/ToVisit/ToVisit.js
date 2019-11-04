@@ -13,6 +13,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
+import APIURL from '../../../helpers/environment';
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -44,7 +46,7 @@ const ToVisit = (props) =>{
 
     const getList = () => {
 
-        fetch('http://localhost:3000/visit/viewlist', {
+        fetch(`${APIURL}/visit/viewlist`, {
         method: 'GET',
         headers: new Headers({
             'Content-Type': 'application/json',
@@ -59,7 +61,7 @@ const ToVisit = (props) =>{
     const addToList = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:3000/visit/add', {
+        fetch(`${APIURL}/visit/add`, {
             method: 'POST',
             body: JSON.stringify({trailName: listTrail, address: listAdd}),
             headers: new Headers({
@@ -78,7 +80,7 @@ const ToVisit = (props) =>{
 
     useEffect( () => {
 
-        fetch('http://localhost:3000/visit/viewlist', {
+        fetch(`${APIURL}/visit/viewlist`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

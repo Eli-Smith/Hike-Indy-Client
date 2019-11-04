@@ -7,6 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+import APIURL from '../../../helpers/environment';
+
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -37,7 +39,7 @@ const Create = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        fetch('http://localhost:3000/usertrails/logtrail', {
+        fetch(`${APIURL}/usertrails/logtrail`, {
             method: 'POST',
             body: JSON.stringify({trailName: trailName, difficulty: difficulty, description: description, rating: rating}),
             headers: {
