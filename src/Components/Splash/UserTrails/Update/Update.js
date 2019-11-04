@@ -6,7 +6,7 @@ import './Update.css'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-import APIURL from '../../../helpers/environment';
+import APIURL from '../../../../helpers/environment';
 
 const useStyles = makeStyles(theme => ({
   button: {
