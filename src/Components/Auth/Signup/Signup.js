@@ -43,7 +43,7 @@ const Signup = (props) => {  // Declaring our Signup component and setting it to
         })
         .then(data => data.json()) // JSONify the data returned from our fetch
         .then(json => props.setSession(json.sessionToken)) // Using our setSession callback function from our props and establish a new session
-        .catch(err => console.log(err)); // Catching any errors we may encounter
+        .catch(err => console.text(err)); // Catching any errors we may encounter
     }
 
     return(
