@@ -74,7 +74,7 @@ const Signup = (props) => {  // Declaring our Signup component and setting it to
                     <Row>
                         <FormGroup>
                             <Label htmlFor='password'>Password:</Label>
-                            <Input type='password' name='password' placeholder='Password' pattern="[A-Z,a-z]{6,}" title='Password must be at least 6 characters' onChange={(e) => setPassword(e.target.value)} required></Input>
+                            <Input type='password' name='password' placeholder='Password' pattern="[A-Z,a-z,0-9]{6,18}" title='Password must be at least 6 characters' onChange={(e) => setPassword(e.target.value)} required></Input>
                         </FormGroup>
                     </Row>
                     <Button variant='contained' type='submit'>Create Account</Button>
