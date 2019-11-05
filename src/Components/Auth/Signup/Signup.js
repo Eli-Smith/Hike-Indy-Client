@@ -15,6 +15,9 @@ const useStyles = makeStyles(theme => ({ // Creating a variable to store our mui
   input: {
     display: 'none',
   },
+  spacing: {
+      margin: '1em'
+  }
 }));
 
 const Signup = (props) => {  // Declaring our Signup component and setting it to accept props
@@ -48,19 +51,22 @@ const Signup = (props) => {  // Declaring our Signup component and setting it to
 
     return(
         <div className='mainSignup'> {/*Using JSX to create the layout of our Signup component*/}
-            <span style={{position: 'relative'}}>Create an Account:</span>
+            <div className='mainSignupDiv'>
+            <span style={{position: 'relative', fontSize: '20px'}}>Create an Account:</span>
             <br/>
                 <Form onSubmit={handleSignup}>
                     <Row>
                         <Col md={6}>
                             <FormGroup>
                                 <Label htmlFor='firstName'>First Name:</Label>
+                                <br/>
                                 <Input type='text' name='firstName' placeholder='First Name' onChange={(e) => setFirstName(e.target.value)} required></Input>
                             </FormGroup>
                         </Col>
                         <Col md={6}>
                             <FormGroup>
-                                <Label htmlFor='lastName'>Last Name</Label>
+                                <Label htmlFor='lastName'>Last Name:</Label>
+                                <br/>
                                 <Input type='text' name='lastName' placeholder='Last Name' onChange={(e) => setLastName(e.target.value)} required></Input>
                             </FormGroup>
                         </Col>
@@ -68,17 +74,21 @@ const Signup = (props) => {  // Declaring our Signup component and setting it to
                     <Row>
                         <FormGroup>
                             <Label htmlFor='email'>Email:</Label>
+                            <br/>
                             <Input type='email' name='email' placeholder='Email' onChange={(e) => setEmail(e.target.value)} required></Input>
                         </FormGroup>
                     </Row>
                     <Row>
                         <FormGroup>
                             <Label htmlFor='password'>Password:</Label>
+                            <br/>
                             <Input type='password' name='password' placeholder='Password' pattern="[A-Z,a-z,0-9]{6,18}" title='Password must be between 6-18 characters (letters and numbers only)' onChange={(e) => setPassword(e.target.value)} required></Input>
                         </FormGroup>
                     </Row>
                     <Button variant='contained' type='submit'>Create Account</Button>
+                    <Button style={{margin: '1em', backgroundColor: '#51C98D'}} variant='contained' onClick={props.authToggle}>Already have an account? Click here to log in!</Button>
                 </Form>
+            </div>
         </div>
     )
 }

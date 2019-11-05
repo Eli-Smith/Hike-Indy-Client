@@ -43,26 +43,30 @@ const Login = (props) =>{ // Declaring our Login component
 
     return(
         <div className='mainLogin'> {/*Using JSX to create the layout of our Log in Component*/}
-            <span style={{position: 'relative'}}>Log In:</span>
+            <div className='mainLoginDiv'>
+            <span style={{position: 'relative', fontSize: '20px'}}>Log In:</span>
             <br />
-            <Form onSubmit={handleLogin}>
-                <Row>
-                    <Col md={6}>
-                        <FormGroup>
-                            <Label htmlFor='email'>Email:</Label>
-                            <br/>
-                            <Input type='email' name='email' id='email' placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} required></Input>
-                        </FormGroup>
-                    </Col>
-                    <Col md={6}>
-                        <FormGroup>
-                            <Label htmlFor='password'>Password:</Label>
-                            <Input type='password' name='password' id='password' placeholder='Enter your password' onChange={(e) => setPassword(e.target.value)} required></Input>
-                        </FormGroup>
-                    </Col>
-                </Row>
-                <Button variant='contained' type='submit'>Log In</Button>
-            </Form>
+                <Form onSubmit={handleLogin}>
+                    <Row>
+                        <Col md={6}>
+                            <FormGroup>
+                                <Label htmlFor='email'>Email:</Label>
+                                <br/>
+                                <Input type='email' name='email' id='email' placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} required></Input>
+                            </FormGroup>
+                        </Col>
+                        <Col md={6}>
+                            <FormGroup>
+                                <Label htmlFor='password'>Password:</Label>
+                                <br/>
+                                <Input type='password' name='password' id='password' placeholder='Enter your password' onChange={(e) => setPassword(e.target.value)} required></Input>
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Button variant='contained' type='submit'>Log In</Button>
+                    <Button style={{margin: '1em', backgroundColor: '#51C98D'}}variant='contained' onClick={props.authToggle}>Click here to create an account!</Button>
+                </Form>
+            </div>
         </div>
     );
 };

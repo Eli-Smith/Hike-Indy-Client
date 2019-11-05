@@ -41,8 +41,8 @@ const UserTrailsDisplay = (props) => {
             <TableCell align='left'>{props.data.description}</TableCell>
             <TableCell align='left'>{props.data.rating}</TableCell>
             <TableCell align='left'>
-                <Button variant='contained' style={{backgroundColor: '#DDB537'}} onClick={ () => {props.editTrailUpdate(props.data); props.updateOn()}}>Edit</Button>
-                <Button variant='contained' style={{backgroundColor: '#DD4E37'}} onClick={deleteTrail}>Delete</Button>
+                <Button variant='contained' style={{backgroundColor: '#DDB537'}} onClick={ () => {props.editTrailUpdate(props.data); props.updateOn()}}><i class="fas fa-pencil-alt"></i></Button>
+                <Button variant='contained' style={{backgroundColor: '#DD4E37'}} onClick={deleteTrail}><i class="fas fa-trash-alt"></i></Button>
             </TableCell>
         </TableRow>
        </>

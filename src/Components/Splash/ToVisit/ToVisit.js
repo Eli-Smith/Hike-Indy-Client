@@ -98,7 +98,7 @@ const ToVisit = (props) =>{
             <div className='mainToVisitDiv' style={{marginRight: '3em'}}>
                 
             <Paper className={classes.root} style={{padding: '1em'}}>  
-            <h1 style={{margin: '0px'}}>To Visit List</h1>
+            <h1 style={{margin: '0px'}}>Future Hikes</h1>
             <span>Add a trail to your list to visit later!</span>
             <Form onSubmit={addToList}>
                 <FormGroup>

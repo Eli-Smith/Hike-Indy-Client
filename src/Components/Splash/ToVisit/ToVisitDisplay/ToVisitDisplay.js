@@ -37,7 +37,7 @@ const ToVisitDisplay = (props) => {
                 <TableCell>{props.listItems.trailName}</TableCell>
                 <TableCell>{props.listItems.address}</TableCell>
                 <TableCell>
-                <Button variant='contained' style={{backgroundColor: '#DD4E37'}} onClick={removeFromList}>Remove</Button>
+                <Button variant='contained' style={{backgroundColor: '#DD4E37'}} onClick={removeFromList}><i class="fas fa-trash-alt"></i></Button>
                 </TableCell>
             </TableRow>
         </>
