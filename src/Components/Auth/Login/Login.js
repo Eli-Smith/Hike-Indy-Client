@@ -43,7 +43,8 @@ const Login = (props) =>{ // Declaring our Login component
 
     return(
         <div className='mainLogin'> {/*Using JSX to create the layout of our Log in Component*/}
-            <span>Log In:</span>
+            <span style={{position: 'relative'}}>Log In:</span>
+            <br />
             <Form onSubmit={handleLogin}>
                 <Row>
                     <Col md={6}>

@@ -42,6 +42,7 @@ const Update = (props) => {
     }
 
     return(
+        <div>
             <Modal isOpen={true}>
                 <ModalHeader>Update Your Trail</ModalHeader>
                 <ModalBody>
@@ -77,6 +78,7 @@ const Update = (props) => {
                     </Form>
                 </ModalBody>
             </Modal>
+            </div>
     )
 }
 

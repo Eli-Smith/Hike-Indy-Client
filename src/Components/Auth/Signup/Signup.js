@@ -48,7 +48,8 @@ const Signup = (props) => {  // Declaring our Signup component and setting it to
 
     return(
         <div className='mainSignup'> {/*Using JSX to create the layout of our Signup component*/}
-            <span>Create an Account:</span>
+            <span style={{position: 'relative'}}>Create an Account:</span>
+            <br/>
                 <Form onSubmit={handleSignup}>
                     <Row>
                         <Col md={6}>
