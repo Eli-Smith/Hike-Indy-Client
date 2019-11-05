@@ -29,6 +29,9 @@ const useStyles = makeStyles({
         fontWeight: 'bold',
         fontSize: '20px',
     },
+    color: {
+        backgroundColor: '#D5D5D5'
+    }
   });
 
 
@@ -90,7 +93,7 @@ const UserTrails = (props) =>{
             <TrailCreate token={props.token} getTrails={getTrails}/> 
 
             <Paper className={classes.root}>
-            <h1 style={{margin: '0px'}}>My Trail Log</h1>
+            <h1>My Trail Log</h1>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                 <TableRow>

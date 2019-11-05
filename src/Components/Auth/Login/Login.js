@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles'; // (Lines 5 and 6) Import
 import Button from '@material-ui/core/Button';
 
 import APIURL from '../../../helpers/environment';
+import { runInNewContext } from 'vm';
 
 
 const useStyles = makeStyles(theme => ({ // Grabbing the pre set style for our mui components
@@ -38,7 +39,7 @@ const Login = (props) =>{ // Declaring our Login component
         })
         .then(data => data.json()) // Jsonify the data from our fetch
         .then(json => props.setSession(json.sessionToken)) // Setting the session token handed to us as a prop from our App.js
-        .catch(err => console.log(err)) // Cathing any errors we may encounter
+        .catch(err => console.log(`This is my error: ${err}`)) // Cathing any errors we may encounter
     }
 
     return(

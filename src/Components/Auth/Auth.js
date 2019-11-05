@@ -21,14 +21,8 @@ const Auth = (props) => {
                     <br/>
                     or find your next hike from over 200 Indiana hiking trails!</h3>
                 <div className='formDiv'>
-                    { login ? <Login setSession={props.setSession} authToggle={authToggle} /> : <Signup setSession={props.setSession} authToggle={authToggle} setLogin={setLogin}/>}
-                {/* <Login setSession={props.setSession}/>
-                
-                <br/>
-                
-            <Signup setSession={props.setSession}/> */}
+                    { login ? <Login setSession={props.setSession} authToggle={authToggle} token={props.token}/> : <Signup setSession={props.setSession} authToggle={authToggle} setLogin={setLogin}/>}
                 </div>
-                {/* <button onClick={authToggle}>Already have an account? Click here to sign in!</button> */}
             </div>
         </div>
     )
