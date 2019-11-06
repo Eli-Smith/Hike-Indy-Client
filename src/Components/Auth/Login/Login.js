@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles'; // (Lines 5 and 6) Import
 import Button from '@material-ui/core/Button';
 
 import APIURL from '../../../helpers/environment';
-import { runInNewContext } from 'vm';
 
 
 const useStyles = makeStyles(theme => ({ // Grabbing the pre set style for our mui components
@@ -27,6 +26,17 @@ const Login = (props) =>{ // Declaring our Login component
         password: password
     };
 
+    const displayError = () => {
+        if( !props.token) {
+            setTimeout(() => {
+                document.getElementById('errorMessage').style.visibility = 'visible'
+                alert('Invalid Email or Password. Please try again.')
+            }, 1000)
+        } else {
+            return
+        }   
+    };
+
     const handleLogin = (e) => { // Delcaring a function and setting it to take in an event as an argument
         e.preventDefault(); // Preventing the default functions of any event our function takes in
 
@@ -39,6 +49,7 @@ const Login = (props) =>{ // Declaring our Login component
         })
         .then(data => data.json()) // Jsonify the data from our fetch
         .then(json => props.setSession(json.sessionToken)) // Setting the session token handed to us as a prop from our App.js
+        // .then(displayError)
         .catch(err => console.log(`This is my error: ${err}`)) // Cathing any errors we may encounter
     }
 
@@ -67,6 +78,9 @@ const Login = (props) =>{ // Declaring our Login component
                     <Button variant='contained' type='submit'>Log In</Button>
                     <Button style={{margin: '1em', backgroundColor: '#51C98D'}}variant='contained' onClick={props.authToggle}>Click here to create an account!</Button>
                 </Form>
+                <div>
+                    <p id='errorMessage' style={{backgroundColor: 'red', visibility: 'hidden', padding: '5px'}}>Invalid Email or Password. Please Try again.</p>
+                </div>
             </div>
         </div>
     );

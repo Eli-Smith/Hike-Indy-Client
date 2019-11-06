@@ -11,7 +11,7 @@ const Auth = (props) => {
 
     const authToggle = () => {
         setLogin(!login)
-    }
+    };
 
     return(
         <div className='mainAuth'>

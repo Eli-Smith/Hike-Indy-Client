@@ -1,9 +1,6 @@
 .mainSplash {
-    /* background-image: url('../../assets/Splash_Page_Background_4.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover; */
-
     background-image: linear-gradient(to bottom right, #FBEEC1, #659DBD, #DAAD86);
+    background-size: cover;
 
     height: auto;
 
