@@ -2,20 +2,9 @@ import React, { useState } from 'react'; // Importing React and useState to crea
 import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap'; // Importing components from the ReactStrap Library
 import './Login.css'; // Linking our css file
 
-import { makeStyles } from '@material-ui/core/styles'; // (Lines 5 and 6) Importing material UI components from our material UI dependency
 import Button from '@material-ui/core/Button';
 
 import APIURL from '../../../helpers/environment';
-
-
-const useStyles = makeStyles(theme => ({ // Grabbing the pre set style for our mui components
-  Button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-}));
 
 const Login = (props) =>{ // Declaring our Login component
     const [email, setEmail] = useState(''); // (Lines 18 and 19) Declaring the useState of our component to take in the email and password from our login fields

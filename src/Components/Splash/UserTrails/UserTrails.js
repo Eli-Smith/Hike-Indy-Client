@@ -17,23 +17,6 @@ import './UserTrails.css'
 
 import APIURL from '../../../helpers/environment';
 
-const useStyles = makeStyles({
-    root: {
-      width: '100%',
-      overflowX: 'auto',
-    },
-    table: {
-      minWidth: 650,
-    },
-    boldHeaders: {
-        fontWeight: 'bold',
-        fontSize: '20px',
-    },
-    color: {
-        backgroundColor: '#D5D5D5'
-    }
-  });
-
 
 const UserTrails = (props) =>{
     const classes = makeStyles;

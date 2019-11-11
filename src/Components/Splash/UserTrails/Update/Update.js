@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Container } from 'reactstrap'
+import {Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap'
 
 import './Update.css'
 
@@ -8,17 +8,7 @@ import Button from '@material-ui/core/Button';
 
 import APIURL from '../../../../helpers/environment';
 
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-}));
-
 const Update = (props) => {
-    const classes = useStyles
 
     const [editTrailName, setEditTrailName] = useState(props.trailToUpdate.trailName)
     const [editDiff, setEditDiff] = useState(props.trailToUpdate.difficulty)

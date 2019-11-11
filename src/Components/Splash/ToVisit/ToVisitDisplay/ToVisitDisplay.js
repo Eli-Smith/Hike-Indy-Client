@@ -7,14 +7,6 @@ import Button from '@material-ui/core/Button';
 
 import APIURL from '../../../../helpers/environment';
 
-const useStyles = makeStyles(theme => ({
-  Button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-}));
 
 const ToVisitDisplay = (props) => {
 

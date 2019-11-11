@@ -15,22 +15,6 @@ import Button from '@material-ui/core/Button';
 
 import APIURL from '../../../helpers/environment';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 650,
-  },
-  button: {
-    margin: theme.spacing(1),
-},
-input: {
-    display: 'none',
-},  
-}));
-
 const ToVisit = (props) =>{
     const classes = makeStyles;
 

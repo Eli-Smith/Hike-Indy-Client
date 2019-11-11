@@ -8,18 +8,6 @@ import Button from '@material-ui/core/Button';
 
 import APIURL from '../../../helpers/environment';
 
-const useStyles = makeStyles(theme => ({ // Creating a variable to store our mui styled elements
-  Button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-  spacing: {
-      margin: '1em'
-  }
-}));
-
 const Signup = (props) => {  // Declaring our Signup component and setting it to accept props
     
     const [firstName, setFirstName] = useState(''); // (Lines 20 - 23) Establishing the useState of our component to create new users

@@ -14,20 +14,6 @@ import APIURL from '../../../helpers/environment';
 
 import './Trails.css'
 
-const useStyles = makeStyles({
-    root: {
-      width: '100%',
-      overflowX: 'auto',
-    },
-    table: {
-      minWidth: 650,
-    },
-    boldHeaders: {
-        fontWeight: 'bold',
-        fontSize: '20px',
-    },
-  });
-
 const Trails = (props) =>{
     const classes = makeStyles;
 
