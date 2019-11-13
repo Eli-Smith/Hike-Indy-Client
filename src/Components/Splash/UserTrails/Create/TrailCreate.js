@@ -87,11 +87,11 @@ const Create = (props) => {
                     <br />
                     <Input type='select' name='rating' className="selectDropdown" value={rating} onChange={ (e) => setRating(e.target.value)} required>
                         <option value={null}>Rate your experience!</option>
-                        <option value='1'>1</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                        <option value='5'>5</option>
+                        <option value='⭐'>⭐</option>
+                        <option value='⭐⭐'>⭐⭐</option>
+                        <option value='⭐⭐⭐'>⭐⭐⭐</option>
+                        <option value='⭐⭐⭐⭐'>⭐⭐⭐⭐</option>
+                        <option value='⭐⭐⭐⭐⭐'>⭐⭐⭐⭐⭐</option>
                     </Input>
                 </FormGroup>
                 <Button type='submit' variant='contained' color='primary'>Record your trail!</Button>
